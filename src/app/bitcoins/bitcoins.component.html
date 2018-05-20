@@ -1,0 +1,26 @@
+<form [formGroup]="bitcoinsForm" (ngSubmit)="onSubmit(bitcoinsForm.value)">
+  <div class="row">
+  <div *ngFor="let s of sites; let k = index">
+    <div class="col-md-4">
+    <div formArrayName = {{s}}>
+        
+        <div *ngFor="let j of bitcoinsForm.get(s).controls; let i = index">
+              <label > {{k + 1}}:</label>
+            <br>
+            <div class="form-inline">
+              <input type="text" class="form-control mb-2 mr-sm-2" [formControlName]="i">
+              <i *ngIf= "i>3" (click)="delend(i, s)"class="fa fa-minus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <i (click)="addend()" class="fa fa-plus-circle" aria-hidden="true"></i>
+  </div>
+  <button ion-button round block margin-top type="submit" [disabled]="!bitcoinsForm.valid">Calcular</button>
+  </form>
+
+  <h3>
+    {{data}}
+  </h3>

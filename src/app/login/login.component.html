@@ -1,0 +1,11 @@
+<form [formGroup] = "loginForm" (ngSubmit) = "onSubmit(loginForm.value)" class="ui form">
+  <div>
+    <input type="text" id="username" [formControl]="loginForm.controls['username']" [(ngModel)]="username" class="inputlogin">
+  </div>
+  <div>
+    <input type="password" id="password" [formControl]="loginForm.controls['password']" [(ngModel)]="password" class="inputlogin">
+  </div>
+
+  <button type="submit" >Login with Github</button>
+  
+</form>
